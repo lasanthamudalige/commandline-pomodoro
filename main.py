@@ -29,12 +29,13 @@ def main():
                 countdown = 30 * 60
                 break_amount = 0
             else:
-                send_notification("well done!", "Take a break now.")
+                send_notification("well done!", "Take a 10 minutes break now.")
                 on_break = True
                 countdown = break_time
                 break_amount += 1
         elif countdown == 0 and on_break:
-            send_notification("Time to start again!", "The break is over.")
+            send_notification("Time to start again!",
+                              "The 10 minutes break is over.")
             on_break = False
             countdown = duration
         # Reset line index after getting into the end of the list.
