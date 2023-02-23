@@ -6,6 +6,7 @@ import notify2
 def main():
     duration = 60 * 60
     break_time = 10 * 60
+    break_amount = 0
 
     countdown = duration
     on_break = False
@@ -23,9 +24,14 @@ def main():
         line_index += 1
         sleep(1)
         if countdown == 0 and not on_break:
-            send_notification("well done!", "Take a break now.")
-            on_break = True
-            countdown = break_time
+            # Get 30 minutes break after 4, 10 minutes breaks.
+            if break_amount == 4:
+                countdown = 30 * 60
+            else:
+                send_notification("well done!", "Take a break now.")
+                on_break = True
+                countdown = break_time
+                break_amount += 1
         elif countdown == 0 and on_break:
             send_notification("Time to start again!", "The break is over.")
             on_break = False
