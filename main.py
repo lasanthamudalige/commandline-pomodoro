@@ -1,4 +1,3 @@
-from math import floor
 from time import sleep
 import notify2
 
@@ -8,17 +7,18 @@ def main():
     break_time = 60 * 5
     break_amount = 0
 
-    countdown = duration
-    on_break = False
     lines = ["|", "/", "—", "\\", "|"]
     line_index = 0
+
+    countdown = duration
+    on_break = False
 
     while True:
         # To clear the terminal.
         print("\033c")
         # Print time and a cool line to show progress.
         print(
-            f"Time left: {floor(countdown / 60)}:{(countdown % 60):02d} {lines[line_index]}")
+            f"Time left: {countdown // 60}:{(countdown % 60):02d} {lines[line_index]}")
         countdown -= 1
         # This will add 1 to line index to update the line.
         line_index += 1
