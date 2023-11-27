@@ -26,10 +26,11 @@ def main():
         if countdown == 0 and not on_break:
             # Get 30 minutes break after 4, 10 minutes breaks.
             if break_amount == 4:
+                send_notification("Excellent!", "Take a 30 minutes break now.")
                 countdown = 60 * 30
                 break_amount = 0
             else:
-                send_notification("well done!", "Take a 10 minutes break now.")
+                send_notification("well done!", "Take a 5 minutes break now.")
                 on_break = True
                 countdown = break_time
                 break_amount += 1
